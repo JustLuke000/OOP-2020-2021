@@ -4,26 +4,32 @@ public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Hello world");
+        // System.out.println("Hello world");
+        // Animal misty = new Dog("Misty");
+        // Animal topCat = new Cat("TopCat");
 
-        Animal misty = new Dog("Misty");
+        Animal ginger = new Cat("Ginger");
+        System.out.println(ginger);
 
-        Animal topCat = new Cat("TopCat");
+        Cat.kill("Ginger");
 
-        System.out.println(misty);
-        System.out.println(topCat);
 
-        misty = topCat;
 
-        topCat.setName("Garfield");
 
-        System.out.println(misty);
-        System.out.println(topCat);
+        // System.out.println(misty);
+        // System.out.println(topCat);
 
-        // What will get printed out??
+        // misty = topCat;
 
-        // 1. topcat, Garfield
-        // 2. garfield, Garfield 
+        // topCat.setName("Garfield");
+
+        // System.out.println(misty);
+        // System.out.println(topCat);
+
+        // // What will get printed out??
+
+        // // 1. topcat, Garfield
+        // // 2. garfield, Garfield 
 
 
     }
