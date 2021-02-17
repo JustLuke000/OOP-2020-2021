@@ -131,7 +131,7 @@ public class Arrays extends PApplet {
                 float w = width / (float) rainfall.length;
                 for (int i = 0; i < rainfall.length; i++) 
                 {
-                    fill(colorinc, colorinc, 255);
+                    fill(colorinc, 255, 255); 
                     float f = map(i, 0, rainfall.length, 40, width - 40);
                     rect(f, 470, w-10, -((float) 3.5 * rainfall[i]));
                     colorinc = colorinc + 30;
