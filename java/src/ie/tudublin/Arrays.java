@@ -127,20 +127,22 @@ public class Arrays extends PApplet {
                 float border = width * 0.1f;
                 textAlign(CENTER, CENTER);
                 int k = 120;
+                float colorinc = 0;
                 float w = width / (float) rainfall.length;
                 for (int i = 0; i < rainfall.length; i++) 
                 {
-                    float x = map(i, 0, 12, border, width - border);
-
-                    fill(random(255), 255, 255);
-                    float f = map(i, 0, rainfall.length, 0, width);
-                    rect(f, height, w, -rainfall[i]);
+                    fill(colorinc, colorinc, 255);
+                    float f = map(i, 0, rainfall.length, 40, width - 40);
+                    rect(f, 470, w-10, -((float) 3.5 * rainfall[i]));
+                    colorinc = colorinc + 30;
 
                     fill(255);
-                    text(k, border * 0.5f, x);
-                    text(months[i], x, 480);
+                    f = f + 15;
+                    text(k, border * 0.5f, f);
+                    text(months[i], f, 480);
                     k = k - 10;
                 }
+
                 break;
             }
             case 1: 
@@ -174,6 +176,8 @@ public class Arrays extends PApplet {
             }
             case 2: {
                 // Pie chart
+                drawGrid();
+                break;
             }
         }
     }
