@@ -110,14 +110,7 @@ public class Arrays extends PApplet {
         // Draw a bar chart of the rainfall!!
         // Use the map function
 
-        colorMode(HSB);
-        float w = width / (float) rainfall.length;
-        for (int i = 0; i < rainfall.length; i++) {
-            noStroke();
-            fill(random(255), 255, 255);
-            float x = map(i, 0, rainfall.length, 0, width);
-            rect(x, height, w, -rainfall[i]);
-        }
+        
     }
 
 
@@ -126,10 +119,58 @@ public class Arrays extends PApplet {
         switch (mode) {
             case 0: {
                 // Bar chart
+                colorMode(RGB);
+                stroke(255, 255, 255);
+                line(40,40,40,470);
+                line(40,470,470,470);
+
+                float border = width * 0.1f;
+                textAlign(CENTER, CENTER);
+                int k = 120;
+                float w = width / (float) rainfall.length;
+                for (int i = 0; i < rainfall.length; i++) 
+                {
+                    float x = map(i, 0, 12, border, width - border);
+
+                    fill(random(255), 255, 255);
+                    float f = map(i, 0, rainfall.length, 0, width);
+                    rect(f, height, w, -rainfall[i]);
+
+                    fill(255);
+                    text(k, border * 0.5f, x);
+                    text(months[i], x, 480);
+                    k = k - 10;
+                }
                 break;
             }
-            case 1: {
+            case 1: 
+            {
                 // Trend line
+                colorMode(RGB);
+                stroke(255, 255, 255);
+                line(40,40,40,470);
+                line(40,470,470,470);
+
+                float border = width * 0.1f;
+                textAlign(CENTER, CENTER);
+                int k = 120;
+                float nextx = 40;
+                float nexty = 470;
+                for (int i = 0; i <= 11; i++) 
+                {
+                    float rained = (float) ( rainfall[i] * 3.5);
+                    rained = 470 - rained;
+                    float x = map(i, 0, 12, border, width - border);
+                    fill(255);
+                    text(k, border * 0.5f, x);
+                    text(months[i], x, 480);
+                    line(x, rained,nextx,nexty);
+                    nextx = x;
+                    nexty = rained;
+                    k = k - 10;
+                }
+                break;
+                
             }
             case 2: {
                 // Pie chart
